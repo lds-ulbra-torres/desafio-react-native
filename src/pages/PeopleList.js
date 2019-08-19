@@ -6,7 +6,7 @@ import {
   ScrollView
 } from 'react-native';
 
-import styles from './styles/styles';
+import styles from './styles/peopleStyles';
 import api from '../services/api';
 
 
@@ -35,7 +35,7 @@ export default function App ( { navigation } ) {
         <Text style= { styles.title }>Selecione o Personagem:</Text>
 
         {people.map((person, index) => (
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Person', {id: index+1})} key= {index+1}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Person', {name: person.name})} key= {index+1}>
 
             <Text style={styles.textButton}>{person.name}</Text>
 

@@ -8,23 +8,6 @@ const styles = StyleSheet.create({
                 padding: 30,
                 backgroundColor: '#292a38',
         },
-        title: {
-                fontWeight: 'bold',
-                fontSize: 20,
-                color: 'white',
-                marginBottom: 30,
-        },
-        button: {
-                height: 50,
-                alignSelf: 'stretch',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 5,
-                borderColor: '#515470',
-                borderBottomWidth: 1,
-                borderTopWidth: 1,
-                margin: 5,
-        },
         textButton: {
                 color: '#fff',
                 fontSize: 25,
@@ -58,6 +41,28 @@ const styles = StyleSheet.create({
                 borderColor: '#515470',
                 borderWidth: 1,
                 alignSelf: 'stretch',
+        },
+        button: {
+                flex: 1,
+                height: 50,
+                minWidth: 80,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 5,
+                backgroundColor: '#515470',
+                margin: 5,
+        },
+        infoButton: {
+                flex: 1,
+                flexWrap: 'wrap',
+                alignSelf: 'stretch',
+                padding: 5,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+        },
+        textButton: {
+                color: 'white'
         }
 });
 
