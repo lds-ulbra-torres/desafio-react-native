@@ -1,11 +1,11 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import ListPeoples from './pages/ListPeoples';
-import Pessoa from './pages/Pessoa'
+import PeopleList from './pages/PeopleList';
+import Person from './pages/Person'
 
 export default createAppContainer(
     createSwitchNavigator({
-        ListPeoples,
-        Pessoa
+        PeopleList,
+        Person,
     })
 )
