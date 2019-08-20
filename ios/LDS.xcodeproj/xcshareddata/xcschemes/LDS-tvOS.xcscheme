@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "desafio-tvOS.app"
-               BlueprintName = "desafio-tvOS"
-               ReferencedContainer = "container:desafio.xcodeproj">
+               BuildableName = "LDS-tvOS.app"
+               BlueprintName = "LDS-tvOS"
+               ReferencedContainer = "container:LDS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "desafio-tvOSTests.xctest"
-               BlueprintName = "desafio-tvOSTests"
-               ReferencedContainer = "container:desafio.xcodeproj">
+               BuildableName = "LDS-tvOSTests.xctest"
+               BlueprintName = "LDS-tvOSTests"
+               ReferencedContainer = "container:LDS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "desafio-tvOSTests.xctest"
-               BlueprintName = "desafio-tvOSTests"
-               ReferencedContainer = "container:desafio.xcodeproj">
+               BuildableName = "LDS-tvOSTests.xctest"
+               BlueprintName = "LDS-tvOSTests"
+               ReferencedContainer = "container:LDS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "desafio-tvOS.app"
-            BlueprintName = "desafio-tvOS"
-            ReferencedContainer = "container:desafio.xcodeproj">
+            BuildableName = "LDS-tvOS.app"
+            BlueprintName = "LDS-tvOS"
+            ReferencedContainer = "container:LDS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "desafio-tvOS.app"
-            BlueprintName = "desafio-tvOS"
-            ReferencedContainer = "container:desafio.xcodeproj">
+            BuildableName = "LDS-tvOS.app"
+            BlueprintName = "LDS-tvOS"
+            ReferencedContainer = "container:LDS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "desafio-tvOS.app"
-            BlueprintName = "desafio-tvOS"
-            ReferencedContainer = "container:desafio.xcodeproj">
+            BuildableName = "LDS-tvOS.app"
+            BlueprintName = "LDS-tvOS"
+            ReferencedContainer = "container:LDS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
