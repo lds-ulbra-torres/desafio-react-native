@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
                 alignItems: 'center',
         },
         textButton: {
-                color: 'white'
+                color: 'white',
+                textAlign: 'center',
         },
         mensagemVazio:{
                 margin:5,

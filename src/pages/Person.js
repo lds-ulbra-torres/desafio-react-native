@@ -5,7 +5,6 @@ import {
     Text,
     ScrollView,
     TouchableOpacity,
-    ActivityIndicator
 } from 'react-native';
 
 import styles from './styles/personStyles';
@@ -18,18 +17,18 @@ export default function People( { navigation } ) {
     const [vehicles, setVehicles] = useState([]);
     const [starships, setStarships] = useState([]);
 
-    const name = navigation.getParam('name'); 
+    const url = navigation.getParam('url');
 
     useEffect(() => {
         async function loadPerson(){
-            const response = await api.get(`/people/?search=${name}`);
-            const result =  response.data.results[0]
-
-            setPerson(result);
-            setFilm(result.films);    
-            setSpecies(result.species);
-            setVehicles(result.vehicles);        
-            setStarships(result.starships);
+            const response = await api.get(url);
+            const { data } = response;
+            
+            setPerson(data);
+            setFilm(data.films);    
+            setSpecies(data.species);
+            setVehicles(data.vehicles);        
+            setStarships(data.starships);
         }
         
         loadPerson();
@@ -88,18 +87,15 @@ export default function People( { navigation } ) {
                     <View style= { styles.linha } />
 
                     <View style = { styles.infoButton }>
-                        <TouchableOpacity style={ styles.button } onPress= { () => navigation.navigate('Planet', {url: person.homeworld}) }>
-                            <Text style= { styles.textButton }>Terra Natal</Text>
-                        </TouchableOpacity>
+                        <Text style= { styles.textButton }>Planeta Natal: { person.homeworld }</Text>
                     </View>
                     
                     <View style= { styles.linha } />
 
                     <View style={ styles.infoButton }>
                         {films.map((film, index) => (
-                            <TouchableOpacity style={ styles.button } onPress={ () => navigation.navigate('Film', { url: film }) } key={ index+1 }>
-                                <Text style={ styles.textButton }>Filme { index + 1 } </Text>
-                            </TouchableOpacity>
+
+                            <Text style={ styles.textButton } key= {index}>Filme { index + 1 }: {film} </Text>
                         ))}
                     </View>
                     
@@ -107,9 +103,8 @@ export default function People( { navigation } ) {
 
                     <View style= { styles.infoButton }>
                             {species.map((specie, index) => (
-                                <TouchableOpacity style= { styles.button } onPress={ () => navigation.navigate('Specie', { url: specie }) } key= { index+1 }>
-                                    <Text style={ styles.textButton }>Specie { index+1 }</Text>
-                                </TouchableOpacity>
+
+                                <Text style={ styles.textButton } key= {index}>Specie { index+1 }: {specie}</Text>
                             ))}
                     </View>
 
@@ -120,9 +115,7 @@ export default function People( { navigation } ) {
                                 ? <Text style= { styles.mensagemVazio }>Não Tem Veículos</Text>
                                 : (
                                     vehicles.map((vehicle, index) => (
-                                        <TouchableOpacity style= { styles.button } onPress={ () => navigation.navigate('Vehicle', { url: vehicle }) } key= { index+1 }>
-                                            <Text style={ styles.textButton }>Vehicle { index+1 }</Text>
-                                        </TouchableOpacity>
+                                        <Text style={ styles.textButton } key= {index}>Vehicle { index+1 }: {vehicle}</Text>
                                     ))
                                 )
                             }
@@ -135,9 +128,7 @@ export default function People( { navigation } ) {
                                 ? <Text style= { styles.mensagemVazio }>Não Tem Naves Estelares</Text>
                                 : (
                                     starships.map((starship, index) => (
-                                        <TouchableOpacity style= { styles.button } onPress={ () => navigation.navigate('Starship', { url: starship }) } key= { index+1 }>
-                                            <Text style={ styles.textButton }>Nave Estelar { index+1 }</Text>
-                                        </TouchableOpacity>
+                                        <Text style={ styles.textButton } key= {index}>Nave Estelar { index+1 }: {starship}</Text>
                                     ))
                                 )
                             }

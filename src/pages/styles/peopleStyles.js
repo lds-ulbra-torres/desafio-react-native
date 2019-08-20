@@ -33,6 +33,28 @@ const styles = StyleSheet.create({
                 color: '#fff',
                 fontSize: 25,
                 fontWeight: 'bold'
+        },
+        buttonContainer: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'row',
+        },
+        navButton: {
+                flex: 1,
+                margin: 5,
+                alignSelf: 'stretch',
+                backgroundColor: '#515470',
+                height: 40,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 5,
+        },
+        navText: {
+                color: 'white',
+        },
+        textPage: {
+                color: 'white',
         }
 });
 
