@@ -1,17 +1,33 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 import
 {
     SafeAreaView,
     Text
-} from 'react-native'
+} from 'react-native';
+
+import api from '../services/api';
+import styles from './styles/personStyles';
 
 export default function Planet({ navigation }){
-    const url = navigation.getParam('url');
+    const url = 'https://swapi.co/api/planets/2/' /*navigation.getParam('url');*/
+    const [ planet, setPlanet ] = useState({});
+
+    useEffect(() => {
+        async function loadPlanet(){
+            const results = await api.get(url);
+
+            setPlanet(results.data);
+        }
+
+        loadPlanet();
+    }, [])
+
+
+
 
     return(
         <SafeAreaView>
-            <Text>Planet: {url}</Text>
+            <Text>Planet: {planet.name}</Text>
         </SafeAreaView>
     );
 }

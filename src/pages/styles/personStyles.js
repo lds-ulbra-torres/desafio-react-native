@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
                 padding: 30,
                 backgroundColor: '#292a38',
         },
+        scroll:{
+                flex: 1,
+                backgroundColor: '#292a38',
+        },
         textButton: {
                 color: '#fff',
                 fontSize: 25,
@@ -63,6 +67,11 @@ const styles = StyleSheet.create({
         },
         textButton: {
                 color: 'white'
+        },
+        mensagemVazio:{
+                margin:5,
+                color: 'white',
+                fontSize: 15, 
         }
 });
 

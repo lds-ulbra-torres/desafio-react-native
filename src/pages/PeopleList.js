@@ -3,7 +3,8 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from 'react-native';
 
 import styles from './styles/peopleStyles';
@@ -28,8 +29,7 @@ export default function App ( { navigation } ) {
   }, []);
 
   return (
-    <ScrollView>
-
+    <ScrollView style={styles.scroll}>
       <SafeAreaView style={styles.container}>
 
         <Text style= { styles.title }>Selecione o Personagem:</Text>
@@ -43,7 +43,6 @@ export default function App ( { navigation } ) {
         ))}
       
       </SafeAreaView>
-
     </ScrollView>
   );
 };

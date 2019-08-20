@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
                 padding: 30,
                 backgroundColor: '#292a38',
         },
+        scroll:{
+                flex: 1,
+                backgroundColor: '#292a38',
+        },
         title: {
                 fontWeight: 'bold',
                 fontSize: 20,
