@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 
 import {
   View,
@@ -9,11 +9,8 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-
 import styles from './styles/peopleStyles';
 import api from '../services/api';
-
-
 
 export default function App({ navigation }) {
   const [ people, setPeople ] = useState([]);
@@ -22,11 +19,9 @@ export default function App({ navigation }) {
 
   useEffect(() => {
     async function loadPeople() {
-
       const response = await api.get(`people/?page=${page}`);      
 
       const { results } = response.data
-      
       setNav(response.data);
       setPeople(results);
     }
@@ -36,7 +31,6 @@ export default function App({ navigation }) {
   return (
     <ScrollView style={ styles.scroll }>
       <SafeAreaView style={ styles.container }>
-
         <Text style={ styles.title }>Selecione o Personagem:</Text>
 
         {people.map((person, index) => (
@@ -66,8 +60,6 @@ export default function App({ navigation }) {
 
         </View>
         <Text style= { styles.textPage }>Pagina {page}</Text>
-
-
       </SafeAreaView>
     </ScrollView>
   );

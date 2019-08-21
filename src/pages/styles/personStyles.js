@@ -40,21 +40,12 @@ const styles = StyleSheet.create({
         textInfo: {
                 color: 'white',
                 fontSize: 15,
+                textAlign: 'center'
         },
         linha: {
                 borderColor: '#515470',
                 borderWidth: 1,
                 alignSelf: 'stretch',
-        },
-        button: {
-                flex: 1,
-                height: 50,
-                minWidth: 80,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 5,
-                backgroundColor: '#515470',
-                margin: 5,
         },
         infoButton: {
                 flex: 1,
@@ -63,7 +54,7 @@ const styles = StyleSheet.create({
                 padding: 5,
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center',
+                alignItems: 'center'
         },
         textButton: {
                 color: 'white',

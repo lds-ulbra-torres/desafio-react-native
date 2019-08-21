@@ -4,20 +4,19 @@ import {
     View,
     Text,
     ScrollView,
-    TouchableOpacity,
 } from 'react-native';
 
 import styles from './styles/personStyles';
-import api from '../services/api'
+import api from '../services/api';
 
 export default function People( { navigation } ) {
     const [person, setPerson] = useState([]);
-    const [films, setFilm] = useState([]);
+    const [films, setFilms] = useState([]);
     const [species, setSpecies] = useState([]);
     const [vehicles, setVehicles] = useState([]);
     const [starships, setStarships] = useState([]);
 
-    const url = navigation.getParam('url');
+    const url =  navigation.getParam('url');
 
     useEffect(() => {
         async function loadPerson(){
@@ -25,10 +24,10 @@ export default function People( { navigation } ) {
             const { data } = response;
             
             setPerson(data);
-            setFilm(data.films);    
+            setFilms(data.films);    
             setSpecies(data.species);
             setVehicles(data.vehicles);        
-            setStarships(data.starships);
+            setStarships(data.starships);            
         }
         
         loadPerson();
