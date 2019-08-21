@@ -12,11 +12,6 @@ const styles = StyleSheet.create({
                 flex: 1,
                 backgroundColor: '#292a38',
         },
-        textButton: {
-                color: '#fff',
-                fontSize: 25,
-                fontWeight: 'bold'
-        },
         containerName: {
                 padding: 10,
         },
@@ -35,30 +30,16 @@ const styles = StyleSheet.create({
                 color: 'white'
         },
         info: {
-                padding: 10,
+                padding: 5,
         },
         textInfo: {
                 color: 'white',
-                fontSize: 15,
                 textAlign: 'center'
         },
         linha: {
                 borderColor: '#515470',
                 borderWidth: 1,
                 alignSelf: 'stretch',
-        },
-        infoButton: {
-                flex: 1,
-                flexWrap: 'wrap',
-                alignSelf: 'stretch',
-                padding: 5,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-        },
-        textButton: {
-                color: 'white',
-                textAlign: 'center',
         },
         mensagemVazio:{
                 margin:5,
