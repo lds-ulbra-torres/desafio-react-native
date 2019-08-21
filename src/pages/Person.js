@@ -4,6 +4,7 @@ import {
     View,
     Text,
     ScrollView,
+    ActivityIndicator
 } from 'react-native';
 
 import styles from './styles/personStyles';
@@ -152,6 +153,12 @@ export default function People( { navigation } ) {
                     </View>
 
                 </View>
+                {person.length === 0 &&
+                    <View style={styles.containerActivity}>
+                        <ActivityIndicator size= {50} color= 'white' />
+                        <Text style= { styles.textActivity }>Carregando...</Text>
+                    </View>
+                }
             </SafeAreaView>
         </ScrollView>
     )

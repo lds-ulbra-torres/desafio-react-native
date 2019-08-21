@@ -19,6 +19,7 @@ export default function App({ navigation }) {
 
   useEffect(() => {
     async function loadPeople() {
+      setPeople([]);
       const response = await api.get(`people/?page=${page}`);      
 
       const { results } = response.data
@@ -59,7 +60,16 @@ export default function App({ navigation }) {
           }
 
         </View>
+
+
         <Text style= { styles.textPage }>Pagina {page}</Text>
+
+        {people.length === 0 &&
+          <View style={styles.containerActivity}>
+            <ActivityIndicator size= {50} color= 'white' />
+            <Text style= { styles.textActivity }>Carregando...</Text>
+          </View>
+        }
       </SafeAreaView>
     </ScrollView>
   );

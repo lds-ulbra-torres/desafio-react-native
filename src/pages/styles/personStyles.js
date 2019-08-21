@@ -45,7 +45,19 @@ const styles = StyleSheet.create({
                 margin:5,
                 color: 'white',
                 fontSize: 15, 
-        }
+        },
+        containerActivity: {
+                flex:1,
+                ...StyleSheet.absoluteFillObject,
+                backgroundColor: '#292a38',
+                paddingTop: 40,
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                
+        },
+        textActivity: {
+                color: 'white',
+        },
 });
 
 export default styles;

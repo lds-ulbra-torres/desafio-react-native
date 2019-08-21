@@ -55,6 +55,17 @@ const styles = StyleSheet.create({
         },
         textPage: {
                 color: 'white',
+        },
+        containerActivity: {
+                flex:1,
+                ...StyleSheet.absoluteFillObject,
+                backgroundColor: '#292a38',
+                justifyContent: 'center',
+                alignItems: 'center',
+                
+        },
+        textActivity: {
+                color: 'white',
         }
 });
 
