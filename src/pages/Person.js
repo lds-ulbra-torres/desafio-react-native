@@ -111,7 +111,7 @@ export default function People( { navigation } ) {
 
                     <View style= { styles.info }>
                             { vehicles.length === 0
-                                ? <Text style= { styles.mensagemVazio }>Não Tem Veículos</Text>
+                                ? <Text style= { styles.mensagemVazio }>Não Possúi Veículos</Text>
                                 : (
                                     vehicles.map((vehicle, index) => (
                                         <Text style={ styles.textInfo } key= {index}>Vehicle { index+1 }: {vehicle}</Text>
@@ -124,7 +124,7 @@ export default function People( { navigation } ) {
 
                     <View style= { styles.info }>
                             { starships.length === 0
-                                ? <Text style= { styles.mensagemVazio }>Não Tem Naves Estelares</Text>
+                                ? <Text style= { styles.mensagemVazio }>Não Possúi Naves Estelares</Text>
                                 : (
                                     starships.map((starship, index) => (
                                         <Text style={ styles.textInfo } key= {index}>Nave Estelar { index+1 }: {starship}</Text>
