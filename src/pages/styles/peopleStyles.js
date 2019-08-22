@@ -7,13 +7,9 @@ const styles = StyleSheet.create({
                 alignItems: 'center',
                 backgroundColor: '#292a38',
         },
-        scroll: {
-                flex: 1,
-                alignSelf: 'stretch',
-        },
         content: {
                 flex: 1,
-                padding: 30,
+                alignSelf: 'stretch',
                 alignItems: 'center',
                 justifyContent: 'center',
         },
@@ -33,33 +29,12 @@ const styles = StyleSheet.create({
                 borderBottomWidth: 1,
                 borderTopWidth: 1,
                 margin: 5,
+                marginHorizontal: 30,
         },
         textButton: {
                 color: '#fff',
                 fontSize: 25,
                 fontWeight: 'bold'
-        },
-        buttonContainer: {
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'row',
-        },
-        navButton: {
-                flex: 1,
-                margin: 5,
-                alignSelf: 'stretch',
-                backgroundColor: '#515470',
-                height: 40,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 5,
-        },
-        navText: {
-                color: 'white',
-        },
-        textPage: {
-                color: 'white',
         },
         containerActivity: {
                 flex:1,
@@ -71,6 +46,18 @@ const styles = StyleSheet.create({
         },
         textActivity: {
                 color: 'white',
+        },
+        flatList: {
+            alignSelf: 'stretch',
+        },
+        loadFooter: {
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: 10,
+        },
+        textFooter: {
+                color: 'white',
+                textAlign: 'center'
         }
 });
 

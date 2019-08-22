@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   View,
@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  ActivityIndicator
+  ActivityIndicator,
+  FlatList
 } from 'react-native';
 
 import styles from './styles/peopleStyles';
@@ -14,65 +15,82 @@ import api from '../services/api';
 
 export default function PeopleList({ navigation }) {
   const [ people, setPeople ] = useState([]);
-  const [ nav, setNav ] = useState([]);
-  let [page, setPage] = useState(1);
+  const [ page, setPage ] = useState(1);
+  const [ loading, setLoading ] = useState( false );
+  const [ end, setEnd ] = useState( false );
+
+  async function loadPeople() {
+    if( loading ) return;
+    if( end ) return;
+
+    setLoading( true );
+
+    const response = await api.get(`people/?page=${page}`);      
+    const { results } = response.data;
+
+
+    setPeople([ ...people, ...results ]);
+
+    setPage(page + 1);
+
+    setLoading( false );
+    
+    !response.data.next && setEnd( true );
+    
+  }
 
   useEffect(() => {
-    async function loadPeople() {
-      setPeople([]);
-      const response = await api.get(`people/?page=${page}`);      
-
-      const { results } = response.data
-      setNav(response.data);
-      setPeople(results);
-    }
     loadPeople();
-  }, [page]);
+  }, []);
 
   return (
     <SafeAreaView style={ styles.container }>
-      <ScrollView style={ styles.scroll }>
-        <View style= { styles.content }>
-          <Text style={ styles.title }>Selecione o Personagem:</Text>
 
-          {people.map((person, index) => (
-            <TouchableOpacity style={ styles.button } onPress={ () => navigation.navigate('Person', { url: person.url }) } key={ index + 1 }>
+      <View style= { styles.content }>
 
-              <Text style={ styles.textButton }>{ person.name }</Text>
+        <Text style={ styles.title }>Selecione o Personagem:</Text>
 
-            </TouchableOpacity>
-          ))}
+        <FlatList 
+          style= { styles.flatList }
+          data= { people }
+          onEndReached={() => loadPeople()}
+          onEndReachedThreshold={0.2}
+          keyExtractor= { item => item.url }
+          renderItem = {({ item }) =>(
 
-          <View style= { styles.buttonContainer }>
-            {
-              nav.previous != null 
-              ? <TouchableOpacity style= { styles.navButton } onPress= {() => setPage(page-1) }>
-                  <Text style= { styles.navText }>Pagina Anterior</Text>
-                </TouchableOpacity>
-              : <View/>
-            }          
+              <TouchableOpacity style={ styles.button } onPress={ () => navigation.navigate('Person', { url: item.url }) }>
+                <Text style={ styles.textButton }>{ item.name }</Text> 
+              </TouchableOpacity>    
 
-            {
-              nav.next != null 
-              ? <TouchableOpacity style= { styles.navButton } onPress= {() => setPage(page+1) }>
-                  <Text style= { styles.navText }>Proxima Pagina</Text>
-                </TouchableOpacity>
-              : <View/>
-            }
+            )}
+          ListFooterComponent= { () => (
 
-          </View>
+              loading
+              ?
+                <View style= { styles.loadFooter }>
 
+                  <ActivityIndicator size= 'large' color= 'white'/>
+                  <Text style= { styles.textFooter }>Carregando...</Text>
 
-          <Text style= { styles.textPage }>Pagina {page}</Text>
+                </View>
+              :
+                end &&
+                  <Text style= { styles.textFooter }>Fim!</Text>
+              
+
+            )}
+        />
+      </View>
+
+      {people.length === 0 &&
+        <View style={styles.containerActivity}>
+
+          <ActivityIndicator size= {50} color= 'white' />
+          <Text style= { styles.textActivity }>Carregando...</Text>
 
         </View>
-      </ScrollView>
-          {people.length === 0 &&
-            <View style={styles.containerActivity}>
-              <ActivityIndicator size= {50} color= 'white' />
-              <Text style= { styles.textActivity }>Carregando...</Text>
-            </View>
-          }
+      }
+
     </SafeAreaView>
   );
 };
