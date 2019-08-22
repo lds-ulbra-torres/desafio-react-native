@@ -5,11 +5,11 @@ const styles = StyleSheet.create({
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: 30,
                 backgroundColor: '#292a38',
         },
         scroll:{
                 flex: 1,
+                alignSelf: 'stretch',
                 backgroundColor: '#292a38',
         },
         containerName: {
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
                 alignSelf: 'stretch',
                 alignItems: 'center',
                 justifyContent: 'center',
+                margin: 30,
                 
         },
         name: {
@@ -50,8 +51,7 @@ const styles = StyleSheet.create({
                 flex:1,
                 ...StyleSheet.absoluteFillObject,
                 backgroundColor: '#292a38',
-                paddingTop: 40,
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 alignItems: 'center',
                 
         },

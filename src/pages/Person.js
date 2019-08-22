@@ -10,7 +10,7 @@ import {
 import styles from './styles/personStyles';
 import api from '../services/api';
 
-export default function People( { navigation } ) {
+export default function Person( { navigation } ) {
     const [person, setPerson] = useState([]);
     const [films, setFilms] = useState([]);
     const [species, setSpecies] = useState([]);
@@ -35,8 +35,8 @@ export default function People( { navigation } ) {
     },[]);
 
     return(
-        <ScrollView style= { styles.scroll }>
-            <SafeAreaView style= { styles.container }>
+        <SafeAreaView style= { styles.container }>
+            <ScrollView style= { styles.scroll }>
                 <View style= { styles.card }>
                     <View style= { styles.info }>
                         <Text style= { styles.name }>{ person.name }</Text>
@@ -153,13 +153,13 @@ export default function People( { navigation } ) {
                     </View>
 
                 </View>
-                {person.length === 0 &&
-                    <View style={styles.containerActivity}>
-                        <ActivityIndicator size= {50} color= 'white' />
-                        <Text style= { styles.textActivity }>Carregando...</Text>
-                    </View>
-                }
-            </SafeAreaView>
-        </ScrollView>
+            </ScrollView>
+            {person.length === 0 &&
+                <View style={styles.containerActivity}>
+                    <ActivityIndicator size= {50} color= 'white' />
+                    <Text style= { styles.textActivity }>Carregando...</Text>
+                </View>
+            }
+        </SafeAreaView>
     )
 }

@@ -5,12 +5,17 @@ const styles = StyleSheet.create({
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: 30,
                 backgroundColor: '#292a38',
         },
-        scroll:{
+        scroll: {
                 flex: 1,
-                backgroundColor: '#292a38',
+                alignSelf: 'stretch',
+        },
+        content: {
+                flex: 1,
+                padding: 30,
+                alignItems: 'center',
+                justifyContent: 'center',
         },
         title: {
                 fontWeight: 'bold',

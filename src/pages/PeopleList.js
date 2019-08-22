@@ -12,7 +12,7 @@ import {
 import styles from './styles/peopleStyles';
 import api from '../services/api';
 
-export default function App({ navigation }) {
+export default function PeopleList({ navigation }) {
   const [ people, setPeople ] = useState([]);
   const [ nav, setNav ] = useState([]);
   let [page, setPage] = useState(1);
@@ -30,47 +30,49 @@ export default function App({ navigation }) {
   }, [page]);
 
   return (
-    <ScrollView style={ styles.scroll }>
-      <SafeAreaView style={ styles.container }>
-        <Text style={ styles.title }>Selecione o Personagem:</Text>
+    <SafeAreaView style={ styles.container }>
+      <ScrollView style={ styles.scroll }>
+        <View style= { styles.content }>
+          <Text style={ styles.title }>Selecione o Personagem:</Text>
 
-        {people.map((person, index) => (
-          <TouchableOpacity style={ styles.button } onPress={ () => navigation.navigate('Person', { url: person.url }) } key={ index + 1 }>
+          {people.map((person, index) => (
+            <TouchableOpacity style={ styles.button } onPress={ () => navigation.navigate('Person', { url: person.url }) } key={ index + 1 }>
 
-            <Text style={ styles.textButton }>{ person.name }</Text>
+              <Text style={ styles.textButton }>{ person.name }</Text>
 
-          </TouchableOpacity>
-        ))}
+            </TouchableOpacity>
+          ))}
 
-        <View style= { styles.buttonContainer }>
-          {
-            nav.previous != null 
-            ? <TouchableOpacity style= { styles.navButton } onPress= {() => setPage(page-1) }>
-                <Text style= { styles.navText }>Pagina Anterior</Text>
-              </TouchableOpacity>
-            : <View/>
-          }          
+          <View style= { styles.buttonContainer }>
+            {
+              nav.previous != null 
+              ? <TouchableOpacity style= { styles.navButton } onPress= {() => setPage(page-1) }>
+                  <Text style= { styles.navText }>Pagina Anterior</Text>
+                </TouchableOpacity>
+              : <View/>
+            }          
 
-          {
-            nav.next != null 
-            ? <TouchableOpacity style= { styles.navButton } onPress= {() => setPage(page+1) }>
-                <Text style= { styles.navText }>Proxima Pagina</Text>
-              </TouchableOpacity>
-            : <View/>
-          }
+            {
+              nav.next != null 
+              ? <TouchableOpacity style= { styles.navButton } onPress= {() => setPage(page+1) }>
+                  <Text style= { styles.navText }>Proxima Pagina</Text>
+                </TouchableOpacity>
+              : <View/>
+            }
+
+          </View>
+
+
+          <Text style= { styles.textPage }>Pagina {page}</Text>
 
         </View>
-
-
-        <Text style= { styles.textPage }>Pagina {page}</Text>
-
-        {people.length === 0 &&
-          <View style={styles.containerActivity}>
-            <ActivityIndicator size= {50} color= 'white' />
-            <Text style= { styles.textActivity }>Carregando...</Text>
-          </View>
-        }
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+          {people.length === 0 &&
+            <View style={styles.containerActivity}>
+              <ActivityIndicator size= {50} color= 'white' />
+              <Text style= { styles.textActivity }>Carregando...</Text>
+            </View>
+          }
+    </SafeAreaView>
   );
 };
