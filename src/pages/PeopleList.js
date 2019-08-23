@@ -5,7 +5,6 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
-  ScrollView,
   ActivityIndicator,
   FlatList
 } from 'react-native';
@@ -27,7 +26,6 @@ export default function PeopleList({ navigation }) {
 
     const response = await api.get(`people/?page=${page}`);      
     const { results } = response.data;
-
 
     setPeople([ ...people, ...results ]);
 
@@ -76,7 +74,6 @@ export default function PeopleList({ navigation }) {
               :
                 end &&
                   <Text style= { styles.textFooter }>Fim!</Text>
-              
 
             )}
         />
